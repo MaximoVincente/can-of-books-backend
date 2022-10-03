@@ -39,3 +39,7 @@ async function getBooks(req, res) {
   }
 }
 
+// catch-all
+app.get('*', (req, res) => {
+  res.status(404).send('Not Found');
+});
