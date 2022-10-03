@@ -16,7 +16,7 @@ db.on('error', console.error.bind(console, 'mongo connection error'));
 db.once('open', function() {
   console.log('Mongoose is connected to Mongo');
 });
-// const Book = require('./books.js');
+const Book = require('./models/books.js');
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
@@ -28,4 +28,14 @@ app.get('/', (request, response) => {
 
 })
 
+app.get('/books', getBooks);
+
+async function getBooks(req, res) {
+  try{
+    const results = await Book.find();
+    res.status(200).send(results);
+  }catch (error){
+    res.status(500).send(error);
+  }
+}
 
