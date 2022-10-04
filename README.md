@@ -51,8 +51,8 @@ Every person on your team is an asset. This is your chance to discover the hidde
 
 1. What are the key strengths of each person on the team?
 
-- Dustin - Design, CSS, interpersonal skills, management
-- Maximo - Organizational skills, structure and whiteboarding, Constructor functions, Javascript, interpersonal skills, management, team leadership.
+- Dustin - Design, CSS, interpersonal skills, management (Frontend)
+- Maximo - Organizational skills, structure and whiteboarding, Constructor functions, Javascript, interpersonal skills, management, team leadership (Backend).
 
 2. How can you best utilize these strengths in the execution of your project?
 
