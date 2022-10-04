@@ -1,7 +1,6 @@
 'use strict';
 
 require('dotenv').config();
-const { CategoryScale } = require('chart.js');
 const cors = require('cors');
 const express = require('express');
 //bring in mongoose
