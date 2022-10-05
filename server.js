@@ -18,7 +18,7 @@ app.use(express.json());
 mongoose.connect(process.env.DB_URL); // DB url goes here
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongo connection error'));
-db.once('open', function() {
+db.once('open', function () {
   console.log('Mongoose is connected to Mongo');
 });
 const Book = require('./models/books.js');
@@ -36,10 +36,10 @@ app.get('/', (request, response) => {
 app.get('/books', getBooks);
 
 async function getBooks(req, res) {
-  try{
+  try {
     const results = await Book.find();
     res.status(200).send(results);
-  }catch (error){
+  } catch (error) {
     res.status(500).send(error);
   }
 }
@@ -49,11 +49,11 @@ app.post('/books', postBooks);
 
 async function postBooks(req, res, next) {
   console.log(req.body);
-  try{
+  try {
     const newBook = await Book.create(req.body);
     res.status(200).send(newBook);
-  }catch(error){
-    next (error);
+  } catch (error) {
+    next(error);
   }
 }
 
@@ -63,10 +63,10 @@ app.delete('/books/:id', deleteBook);
 async function deleteBook(req, res, next) {
   const id = req.params.id;
   console.log(id);
-  try{
+  try {
     await Book.findByIdAndDelete(id);
     res.status(204).send('Delete was Succesful')
-  }catch(error){
+  } catch (error) {
     next(error);
   }
 }
