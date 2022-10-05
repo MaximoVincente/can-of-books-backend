@@ -71,6 +71,29 @@ async function deleteBook(req, res, next) {
   }
 }
 
+//Put endpoint
+
+app.put('/books/:id', putBook);
+
+async function putBook(req, res, next) {
+  const id = req.params.id;
+  console.log(id);
+  try {
+    const data = req.body;
+
+    const options = {
+      new: true,
+      overwrite: true,
+    };
+    // Represents the updated document! Here it's the updated cat
+    const updatedBook = await Book.findByIdAndUpdate(id, data, options);
+    res.status(201).send(updatedBook);
+  } catch (error) {
+    next(error);
+  }
+}
+
+
 // catch-all
 app.get('*', (req, res) => {
   res.status(404).send('Not Found');
