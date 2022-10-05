@@ -72,7 +72,6 @@ async function deleteBook(req, res, next) {
 }
 
 //Put endpoint
-
 app.put('/books/:id', putBook);
 
 async function putBook(req, res, next) {
@@ -85,7 +84,7 @@ async function putBook(req, res, next) {
       new: true,
       overwrite: true,
     };
-    // Represents the updated document! Here it's the updated cat
+    // Represents the updated document
     const updatedBook = await Book.findByIdAndUpdate(id, data, options);
     res.status(201).send(updatedBook);
   } catch (error) {
